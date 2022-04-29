@@ -38,5 +38,15 @@ setInterval(updateTime, 1000);
 
 const submitHandler = () => {
   const value = timeControl.value;
-  console.log(value);
+  if (value == "") return;
+  const hr = value[0] + value[1];
+  const min = value[3] + value[4];
+
+  const newAlarm = [hr, min];
+  for (let el of AlarmList) {
+    if (el[0] == newAlarm[0] && el[1] == newAlarm[1]) return;
+  }
+  AlarmList.push(newAlarm);
+  updateAlarmList();
+  console.log(hr + " : " + min);
 };
