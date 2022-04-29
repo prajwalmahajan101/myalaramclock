@@ -4,20 +4,22 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <!-- CSS Styles for the page -->
+    <link rel="stylesheet" href="index.css" />
+    <!-- Title for the page -->
     <title>Clock</title>
   </head>
   <body>
-    <section>
+    <section class="container">
+      <!-- Div for Clock -->
       <div id="clock"></div>
+      <!-- Form for adding Alarm -->
       <form>
-        <label for="appt">Select a time:</label>
-        <input type="time" id="appt" name="appt" />
-        <div class="controls">
-          <button type="submit">Set alarm</button>
-          <button type="submit">Clear alarm</button>
-        </div>
+        <label for="alarminput" class="inputlabel">Select a time:</label>
+        <input type="time" id="alarminput" name="time" />
+        <button class="controls" type="submit">Set alarm</button>
       </form>
+      <div id="alarmList"></div>
     </section>
     <script src="index.js"></script>
   </body>
