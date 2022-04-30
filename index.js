@@ -120,9 +120,7 @@ const snoozeHandler = () => {
   const minutes = formatTime(date.getMinutes());
   for (let i = 0; i < AlarmList.length; i++) {
     if (AlarmList[i][0] == hour && AlarmList[i][1] == minutes) {
-      console.log(typeof AlarmList[i][1]);
       let temp = parseInt(AlarmList[i][1]);
-      console.log(typeof temp + " " + temp);
       temp += 5;
       temp += "";
       AlarmList[i][1] = temp;
