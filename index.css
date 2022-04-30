@@ -64,8 +64,27 @@ button {
 
 
 .list{
-    color:rgb(204, 120, 11);
+    color:#160040;
     font-size: 25px;
     font-weight: bolder;
+    margin: 30px;
+    padding: 30px;
+    width:80%;
+    border:5px solid bisque;
+    background-color: #79018C; 
 
+}
+
+li{
+     margin: 30px;
+    padding: 30px;
+     border:5px solid #160040; 
+     background-color: #9A0680;
+     font-family: 'Orbitron', sans-serif;
+     color: black;
+
+}
+
+ul{
+    list-style:none ;
 }

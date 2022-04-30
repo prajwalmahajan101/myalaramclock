@@ -2,6 +2,14 @@ const display = document.getElementById("clock");
 const list = document.getElementById("alarmList");
 const timeControl = document.querySelector('input[type="time"]');
 
+// Audio for Alarm
+const audio = new Audio(
+  "https://assets.mixkit.co/sfx/preview/mixkit-alarm-digital-clock-beep-989.mp3"
+);
+
+// loop
+audio.loop = true;
+
 const AlarmList = [
   ["06", "00"],
   ["07", "00"],
@@ -21,6 +29,9 @@ const updateTime = () => {
   const hour = formatTime(date.getHours());
   const minutes = formatTime(date.getMinutes());
   const seconds = formatTime(date.getSeconds());
+
+  if (checkList([hour, minutes])) audio.play();
+  else audio.pause();
 
   display.innerText = `${hour} : ${minutes} : ${seconds}`;
 };
@@ -43,10 +54,15 @@ const submitHandler = () => {
   const min = value[3] + value[4];
 
   const newAlarm = [hr, min];
-  for (let el of AlarmList) {
-    if (el[0] == newAlarm[0] && el[1] == newAlarm[1]) return;
-  }
+  if (checkList(newAlarm)) return;
   AlarmList.push(newAlarm);
   updateAlarmList();
-  console.log(hr + " : " + min);
+  //   console.log(hr + " : " + min);
+};
+
+const checkList = (data) => {
+  for (let el of AlarmList) {
+    if (el[0] == data[0] && el[1] == data[1]) return true;
+  }
+  return false;
 };
