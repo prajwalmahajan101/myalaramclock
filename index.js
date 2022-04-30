@@ -39,6 +39,8 @@ const updateAlarmList = () => {
 
   list.innerHTML = "<ul>" + data + "</ul>";
 };
+
+// Update Time
 const updateTime = () => {
   const date = new Date();
 
@@ -57,6 +59,7 @@ const updateTime = () => {
   display.innerText = `${hour} : ${minutes} : ${seconds}`;
 };
 
+// Foramte Time
 const formatTime = (time) => {
   if (time < 10) {
     return "0" + time;
@@ -64,10 +67,13 @@ const formatTime = (time) => {
   return time;
 };
 
+// update Alarm List
 updateAlarmList();
 
+//update time every 1 sec
 setInterval(updateTime, 1000);
 
+// add new Alarm
 const submitHandler = () => {
   const value = timeControl.value;
   if (value == "") return;
@@ -81,6 +87,7 @@ const submitHandler = () => {
   //   console.log(hr + " : " + min);
 };
 
+//check For the existence of alarm
 const checkList = (data) => {
   for (let el of AlarmList) {
     if (el[0] == data[0] && el[1] == data[1]) return true;
@@ -88,6 +95,7 @@ const checkList = (data) => {
   return false;
 };
 
+// delete Alarm
 const alarmDelete = (index) => {
   //   console.log(index);
 
@@ -98,6 +106,7 @@ const alarmDelete = (index) => {
   } else return;
 };
 
+//clear A ongoing alarm
 const clearHandler = () => {
   audio.pause();
   const date = new Date();
@@ -113,6 +122,7 @@ const clearHandler = () => {
   removeButton();
 };
 
+// Snooze a Ongoing Alarm
 const snoozeHandler = () => {
   audio.pause();
   const date = new Date();
@@ -131,10 +141,13 @@ const snoozeHandler = () => {
   removeButton();
 };
 
+// set Button for clear and snooze when Alarm is beeping
 const setButton = () => {
   button.innerHTML =
     '<button class="controls" onclick="clearHandler()">Stop alarm</button><button class="controls" onclick="snoozeHandler()">Snooze alarm</button>';
 };
+
+//remove the Buttons when the alram is not beeping
 const removeButton = () => {
   button.innerHTML = "";
 };
