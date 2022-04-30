@@ -17,8 +17,18 @@ const AlarmList = [
 
 const updateAlarmList = () => {
   let data = "";
+  let k = 0;
   for (i of AlarmList) {
-    data += "<li>" + i[0] + " hr " + i[1] + " min " + "</li>";
+    data +=
+      "<li id='" +
+      k +
+      "' onclick='alramDelete(this.id)'>" +
+      i[0] +
+      " hr " +
+      i[1] +
+      " min " +
+      "</li>";
+    k++;
   }
 
   list.innerHTML = "<ul>" + data + "</ul>";
@@ -65,4 +75,14 @@ const checkList = (data) => {
     if (el[0] == data[0] && el[1] == data[1]) return true;
   }
   return false;
+};
+
+const alramDelete = (index) => {
+  //   console.log(index);
+
+  if (confirm("Do You want to delete this alarm :")) {
+    AlarmList.splice(index, 1);
+    //   console.log(AlarmList);
+    updateAlarmList();
+  } else return;
 };
