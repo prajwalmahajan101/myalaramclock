@@ -132,7 +132,7 @@ const snoozeHandler = () => {
     if (AlarmList[i][0] == hour && AlarmList[i][1] == minutes) {
       let temp = parseInt(AlarmList[i][1]);
       temp += 5;
-      temp += "";
+      temp = formatTime(temp) + "";
       AlarmList[i][1] = temp;
     }
   }
