@@ -12,6 +12,13 @@
       rel="stylesheet"
     />
 
+    <link 
+      rel="stylesheet" 
+      media="screen" 
+      href="https://fontlibrary.org//face/lcd" 
+      type="text/css"
+    />
+
     <!-- CSS Styles for the page -->
     <link rel="stylesheet" href="index.css" />
     <!-- Title for the page -->
@@ -19,11 +26,14 @@
   </head>
   <body>
     <section class="container">
+      <div class="title">Alarm Clock</div>
       <!-- Div for Clock -->
-      <div id="clock"></div>
+      <div class="clockcontainer"><div id="clock"></div></div>
       <!-- Form for adding Alarm -->
-      <label for="alarminput" class="inputlabel">Select a time:</label>
-      <input type="time" id="alarminput" name="time" required />
+      <div class="inputlabel">
+        <label for="alarminput">Set Time for Alarm : </label>
+        <input type="time" id="alarminput" name="time" required />
+      </div>
       <button class="controls" onclick="submitHandler()">
         Set alarm
       </button>
