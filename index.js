@@ -12,6 +12,8 @@ const audio = new Audio(
 // loop
 audio.loop = true;
 
+
+//default Alarm List
 const AlarmList = [
   ["06", "00"],
   ["07", "00"],
